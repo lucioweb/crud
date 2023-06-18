@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="CRUD com PHP">
     <meta name="author" content="Lúcio Flávio Lemos">
-    <title>CRUD_4</title>
+    <title>INSTALAÇÃO XAMPP</title>
 
     <!-- Bootstrap 5.3.0 - CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -46,7 +46,7 @@
 
     <main class="container text-center">
         <div class="p-5">
-            <iframe width="100%" height="515" src="https://www.youtube.com/embed/siwoaqAhv3g"
+            <iframe width="100%" height="515" src="https://www.youtube.com/embed/Y_GS5OPnd7I"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>

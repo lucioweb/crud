@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="CRUD com PHP">
     <meta name="author" content="Lúcio Flávio Lemos">
-    <title>CRUD_4</title>
+    <title>CRUD</title>
 
     <!-- Bootstrap 5.3.0 - CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -50,9 +50,9 @@
         <div class="bg-light p-5 rounded">
             <h1>CRUD com PHP</h1>
             <p class="lead">Exemplo de aplicação CRUD (Create, Read, Update e Delete)
-                utilizando PHP, MariaDB (SQL) Apache e Bootstrap 5.02, com foco apenas
+                utilizando PHP, MariaDB (SQL) Apache e Bootstrap 5.3.0, com foco apenas
                 nas operações básicas do CRUD. Aspectos como segurança, autenticação,
-                autorização, acesso a dados e geração de HTML dinâmico, entre outros aspectos, foram considerados
+                autorização, acesso a dados e geração de HTML dinâmico, entre outros, foram considerados
                 subjacentes.</p>
             <a class="btn btn-danger btn-sm" href="data_table.php" role="button">Start CRUD &raquo;</a>
         </div>

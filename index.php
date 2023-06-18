@@ -56,8 +56,6 @@
                 subjacentes.</p>
             <a class="btn btn-danger btn-sm" href="data_table.php" role="button">Start CRUD &raquo;</a>
         </div>
-
-
     </main>
 
     <footer class="footer mt-auto py-3 fixed-bottom bg-body-tertiary">

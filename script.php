@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="CRUD com PHP">
     <meta name="author" content="Lúcio Flávio Lemos">
-    <title>CRUD_4</title>
+    <title>SCRIPT</title>
 
     <!-- Bootstrap 5.3.0 - CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -40,18 +40,35 @@
 
 <body>
     <header>
-        <!-- Include do navbar da página  -->
-        <?php include "shareds/navbar.php"; ?>
+        <div class="container mb-5">
+            <!-- Include do navbar da página  -->
+            <?php include "shareds/navbar.php"; ?>
+        </div>
     </header>
 
-    <main class="container text-center">
-        <div class="p-5">
-            <iframe width="100%" height="515" src="https://www.youtube.com/embed/siwoaqAhv3g"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
+    <main class="container">
+        <div class="bg-light p-5 rounded">
+
+            <code>
+                DROP TABLE IF EXISTS `crud_2`;</br>
+                CREATE TABLE IF NOT EXISTS `crud_2` (</br>
+                `first_name` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,</br>
+                `last_name` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,</br>
+                `email` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,</br>
+                `gender` varchar(20) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,</br>
+                PRIMARY KEY (`id`)</br>
+                ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;</br>
+
+
+            </code>
+
         </div>
+        </br>
+        <p>
+            Schema de criação da tabela <kbd>crud_2</kbd> no vanco de dados <kbd>crud</kbd>
+        </p>
+
+
     </main>
 
     <footer class="footer mt-auto py-3 fixed-bottom bg-body-tertiary">
@@ -77,6 +94,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 
 </html>

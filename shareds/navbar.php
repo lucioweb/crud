@@ -29,9 +29,6 @@
                                 CDN</a>
                         </li>
                         <li><a class="dropdown-item" href="https://devicon.dev/" target="_blank">Ícones</a></li>
-
-                        <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=Y_GS5OPnd7I"
-                                target="_blank">Variáveis de ambiente PHP no Ubuntu</a></li>
                         <li><a class="dropdown-item" href="https://getbootstrap.com/" target="_blank">Bootstrap 5.3</a>
                         </li>
                         <hr class="dropdown-divider">
@@ -41,18 +38,33 @@
                         <li><a class="dropdown-item" href="https://www.mysql.com/">MySQL</a></li>
                         <li><a class="dropdown-item" href="https://www.wampserver.com/en/">WAMPP</a></li>
                         <li><a class="dropdown-item" href="https://code.visualstudio.com/">VSCode</a></li>
-                        <hr class="dropdown-divider">
-                        <li><a class="dropdown-item" href="video.php">Tutorial em vídeo</a></li>
-                        <li><a class="dropdown-item" href="https://github.com/lucioweb/crud" target="_blank">README</a>
-                        </li>
-                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">DISABLED</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/lucioweb/crud">README</a>
-                </li>
+            </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">DISABLED</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/lucioweb/crud">README</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="script.php">SCRIPT</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    TUTORIAL EM VÍDEO
+                </a>
+                <ul class="dropdown-menu bg-body-tertiary border-top-0">
+
+                    <li><a class="dropdown-item" href="videoxampp.php">Instalação do XAMPP</a></li>
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" href="video.php">Criação do CRUD</a></li>
+
+                </ul>
+            </li>
+
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

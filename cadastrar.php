@@ -1,15 +1,14 @@
 <?php
 include "db_conn.php";
-$id = $_GET['id'];
 if (isset($_POST['submit'])) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $gender = $_POST['gender'];
-    $sql = "UPDATE `crud_2` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`gender`='$gender' WHERE id=$id";
+    $sql = "INSERT INTO `crud_2`(`id`,`first_name`, `last_name`, `email`, `gender`) VALUES (NULL, '$first_name', '$last_name', '$email', '$gender')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        header("Location: data_table.php?msg=Registro atualizado com sucesso na base de dados!");
+        header("Location: data_table.php?msg=Registro inserido com sucesso na base de dados!");
     } else {
         echo "Falhou! " . mysqli_error($conn);
     }
@@ -24,8 +23,8 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="CRUD com PHP">
     <meta name="author" content="Lúcio Flávio Lemos">
-    <title>Editar</title>
-    <!-- Bootstrap 5.3.0 - CSS -->
+    <title>Cadastro</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
@@ -33,25 +32,9 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <!-- Folha de estilo própria -->
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
-    <style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
-    }
-    </style>
 </head>
 
 <body>
@@ -62,55 +45,48 @@ if (isset($_POST['submit'])) {
 
     <main class="container">
         <div class="text-center mb-4">
-            <h3>EDITAR</h3>
-            <p class="text-muted">Atualize os dados do usuário</p>
+            <h3>CADASTRAR</h3>
+            <p class="text-muted">Complete os campos do formulário para adicionar um novo usuário</p>
         </div>
-
-        <?php
-        $sql = "SELECT * FROM `crud_2` WHERE id = $id LIMIT 1";
-        $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
-        ?>
 
         <div class="container d-flex justify-content-center">
             <form action="" method="post" style="width:50vw; min-width: 300px;">
                 <div class="row mb-3">
                     <div class="col">
                         <label class="form-label">Primeiro nome</label>
-                        <input type="text" class="form-control" name="first_name"
-                            value="<?php echo $row['first_name'] ?>">
-
+                        <input type="text" class="form-control" name="first_name" id="" placeholder="Lucio">
                     </div>
                     <div class="col">
                         <label class="form-label">Último nome</label>
-                        <input type="text" class="form-control" name="last_name"
-                            value="<?php echo $row['last_name'] ?>">
+                        <input type="text" class="form-control" name="last_name" id="" placeholder="Lemos">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="text" class="form-control" name="email" value="<?php echo $row['email'] ?>">
+                    <input type="text" class="form-control" name="email" id="" placeholder="luciolemos@luciolemos.com">
                 </div>
                 <div class="form-group mb-3">
                     <label>Sexo:</label> &nbsp;
-                    <input type="radio" class="form-check-input" name="gender" id="masculino" value="masculino"
-                        <?php echo ($row['gender'] == 'masculino') ? "checked" : ""; ?>>
+
+                    <input type="radio" class="form-check-input" name="gender" id="masculino" value="masculino">
                     <label for="massculino" class="form-input-label">Masculino</label> &nbsp;
 
-                    <input type="radio" class="form-check-input" name="gender" id="feminino" value="feminino"
-                        <?php echo ($row['gender'] == 'feminino') ? "checked" : ""; ?>>
+                    <input type="radio" class="form-check-input" name="gender" id="feminino" value="feminino">
                     <label for="feminino" class="form-input-label">Feminino</label>
                 </div>
 
                 <div>
                     <button type="submit" class="btn btn-success btn-sm" name="submit"><i
-                            class="fa-solid fa-floppy-disk me-2"></i>Atualizar</button>
+                            class="fa-solid fa-floppy-disk me-2"></i>Salvar</button>
                     <a href="data_table.php" class="btn btn-danger btn-sm"><i
                             class="fa-sharp fa-solid fa-xmark me-2"></i>Cancelar</a>
+                    <button type="reset" class="btn btn-primary btn-sm" name="submit"><i
+                            class="fa-solid fa-broom me-2"></i>Limpar</button>
                 </div>
             </form>
         </div>
     </main>
+
     <footer class="footer mt-auto py-3 fixed-bottom bg-body-tertiary">
         <!-- Include do footer da página  -->
         <?php include "shareds/footer.php"; ?>

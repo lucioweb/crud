@@ -40,40 +40,26 @@
 
 <body>
     <header>
-        <div class="container mb-5">
-            <!-- Include do navbar da página  -->
-            <?php include "shareds/navbar.php"; ?>
-        </div>
+        <!-- Include do navbar da página  -->
+        <?php include "shareds/navbar.php"; ?>
     </header>
 
-    <main class="container">
-        <div class="bg-light p-5 rounded">
-            <h1>CRUD com PHP</h1>
-            <p class="lead">Exemplo de aplicação CRUD (Create, Read, Update e Delete)
-                utilizando PHP, MariaDB (SQL) Apache e Bootstrap 5.02, com foco apenas
-                nas operações básicas do CRUD. Aspectos como segurança, autenticação,
-                autorização, acesso a dados e geração de HTML dinâmico, entre outros aspectos, foram considerados
-                subjacentes.</p>
-            <a class="btn btn-danger btn-sm" href="data_table.php" role="button">Start CRUD &raquo;</a>
-        </div>
-
-
+    <main class="container text-center">
+        <iframe width="100%" height="515" src="https://www.youtube.com/embed/siwoaqAhv3g" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
     </main>
 
-    <footer class="footer mt-auto py-3 fixed-bottom bg-body-tertiary">
-        <!-- Include do footer da página  -->
-        <?php include "shareds/footer.php"; ?>
-    </footer>
-
+    <!-- Include do footer da página  -->
+    <?php include "shareds/footer.php"; ?>
     <!--Scripts adicionais do próprio Bootstratp-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
-
     <!--Script padrão do Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
@@ -83,7 +69,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 </body>
 
 </html>

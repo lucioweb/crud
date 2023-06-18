@@ -29,27 +29,29 @@
                                 CDN</a>
                         </li>
                         <li><a class="dropdown-item" href="https://devicon.dev/" target="_blank">Ícones</a></li>
-                        <li><a class="dropdown-item" href="https://devicon.dev/" target="_blank">Ícones</a></li>
-                        <li><a class="dropdown-item" href="https://devicon.dev/" target="_blank">Ícones</a></li>
+
                         <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=Y_GS5OPnd7I"
                                 target="_blank">Variáveis de ambiente PHP no Ubuntu</a></li>
                         <li><a class="dropdown-item" href="https://getbootstrap.com/" target="_blank">Bootstrap 5.3</a>
                         </li>
                         <hr class="dropdown-divider">
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        <li><a class="dropdown-item" href="#">PHP</a></li>
-                        <li><a class="dropdown-item" href="#">MySQL</a></li>
-                        <li><a class="dropdown-item" href="#">WAMPP</a></li>
-                        <li><a class="dropdown-item" href="#">VSCode</a></li>
+                        <li><a class="dropdown-item"
+                                href="https://learn.microsoft.com/pt-br/windows/wsl/install">WSL2</a></li>
+                        <li><a class="dropdown-item" href="https://www.php.net/">PHP</a></li>
+                        <li><a class="dropdown-item" href="https://www.mysql.com/">MySQL</a></li>
+                        <li><a class="dropdown-item" href="https://www.wampserver.com/en/">WAMPP</a></li>
+                        <li><a class="dropdown-item" href="https://code.visualstudio.com/">VSCode</a></li>
                         <hr class="dropdown-divider">
                         <li><a class="dropdown-item" href="video.php">Tutorial em vídeo</a></li>
-                        <li><a class="dropdown-item" href="https://github.com/lucioweb/crud_4"
-                                target="_blank">README</a>
+                        <li><a class="dropdown-item" href="https://github.com/lucioweb/crud" target="_blank">README</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled">DISABLED</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/lucioweb/crud">README</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">

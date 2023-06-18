@@ -37,7 +37,7 @@ Lembre-se de que deve ter atribuído permissão 777 ao diretório htdocs.
 
     sudo chmod 777 htdocs -R
 
-Dentro de `/opt/lampp$` execute o comando abaixo para carregar XAMPP em modo GUI.
+Dentro de `/opt/lampp$` (no caso do Ubuntu) execute o comando abaixo para carregar XAMPP em modo GUI.
 
     sudo ./manager-linux-x64.run
 

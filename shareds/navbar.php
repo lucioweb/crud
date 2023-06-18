@@ -58,9 +58,9 @@
                 </a>
                 <ul class="dropdown-menu bg-body-tertiary border-top-0">
 
-                    <li><a class="dropdown-item" href="videoxampp.php">Instalação do XAMPP</a></li>
+                    <li><a class="dropdown-item" href="videos/videoxampp.php">Instalação do XAMPP</a></li>
                     <hr class="dropdown-divider">
-                    <li><a class="dropdown-item" href="video.php">Criação do CRUD</a></li>
+                    <li><a class="dropdown-item" href="videos/video.php">Criação do CRUD</a></li>
 
                 </ul>
             </li>

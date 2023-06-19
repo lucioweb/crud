@@ -31,7 +31,8 @@ CRUD é um acrônimo recursivo utilizado para indicar as operações básicas re
 Instalação do XAMPP (*dev* iniciante deve saber que se desenvolvia assim num passado curto).</br> 
 Utilizei dicas valiosas do Code Easy https://www.youtube.com/watch?v=Y_GS5OPnd7I e do Edivaldo Brito: https://www.edivaldobrito.com.br/como-instalar-o-xampp-no-linux/
 
-Startando o XAMPP.
+<details>
+<summary>Startando o XAMPP :eye: </summary> 
 
     sudo /opt/lampp/lampp start
 
@@ -42,9 +43,10 @@ Lembre-se de que deve ter atribuído permissão 777 ao diretório htdocs.
 Dentro de `/opt/lampp$` (no caso do Ubuntu) execute o comando abaixo para carregar XAMPP em modo GUI.
 
     sudo ./manager-linux-x64.run
+</details>
 
 <details>
-<summary>GITHUB :eye: </summary> 
+<summary>GitHub :eye: </summary> 
 Instalando Git no Ubuntu
 
     sudo apt update
@@ -72,7 +74,7 @@ Clonando o projeto para a pasta de sua preferência dentro de htdocs.
 </details>
 
 <details>
-<summary>MariDB :eye: </summary> 
+<summary>MySQL :eye: </summary> 
 O arquivo de conexão `db_conn.php` faz referência a um banco de dados denominado `crud`, lembre-se de criá-lo.
 
     CREATE DATABASE crud;

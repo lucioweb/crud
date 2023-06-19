@@ -47,17 +47,6 @@ Dentro de `/opt/lampp$` (no caso do Ubuntu) execute o comando abaixo para carreg
 
 <details>
 <summary>GITHUB :eye: </summary> 
- 
-![DP](https://user-images.githubusercontent.com/121310141/210562956-79a65c24-df13-4fba-84df-ab1bed90c068.png)
-
-</details>
-
-
-
-
-
-
-
 Instalando Git no Ubuntu
 
     sudo apt update
@@ -81,6 +70,14 @@ Listando as configurações `git config --list`:
 Clonando o projeto para a pasta de sua preferência dentro de htdocs.
 
     sudo git clone https://github.com/lucioweb/crud_4.git
+
+</details>
+
+
+
+
+
+
 
 
 ### **MariaDB (SQL)**

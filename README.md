@@ -43,8 +43,6 @@ Dentro de `/opt/lampp$` (no caso do Ubuntu) execute o comando abaixo para carreg
 
     sudo ./manager-linux-x64.run
 
-#### **GITHUB**
-
 <details>
 <summary>GITHUB :eye: </summary> 
 Instalando Git no Ubuntu
@@ -73,14 +71,8 @@ Clonando o projeto para a pasta de sua preferência dentro de htdocs.
 
 </details>
 
-
-
-
-
-
-
-
-### **MariaDB (SQL)**
+<details>
+<summary>MariDB :eye: </summary> 
 O arquivo de conexão `db_conn.php` faz referência a um banco de dados denominado `crud`, lembre-se de criá-lo.
 
     CREATE DATABASE crud;
@@ -96,6 +88,8 @@ Script de criação da tabela `crud_2` (é como ela é referenciada no arquivo `
      `gender` varchar(20) CHARACTER SET utf8 COLLATE utf8mb4_general_ci	NOT NULL,
      PRIMARY KEY (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+</details>
 
 <div style="display:inline_block">
   <!--<img align="center" heigth="15" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" /> -->

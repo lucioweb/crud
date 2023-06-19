@@ -1,6 +1,8 @@
+CRUD com PHP e MySQL no VSCode
 <!--# CRUD com PHP e MySQL no VSCode, usando o Git Hub como versionador de código.-->
-## 1 - INTRODUÇÃO
-<!--### Olá! 👋 😎 👨-->
+## 1 - INTRODUÇÃO 
+Olá! 😎
+
 CRUD é um acrônimo recursivo utilizado para indicar as operações básicas realizadas sobre um banco de dados (Create, Read, Update, Delete). **crud_4** é um exemplo de aplicação com foco apenas nas operações básicas do CRUD. Aspectos como segurança, autenticação, autorização, acesso a dados, geração de HTML dinâmico, paginação, etc, foram considerados subjacentes. Foram utilizadas na aplicação, as seguintes tecnologias para desenvolvimento WEB: PHP, (MariaDB) MySQL e Apache 2 (old but gold), instalados em Ubuntu rodando em WSL. O editor de codigo utilizado foi o VSCode (pode ser o notepad++, o sublime text, o gedit, etc), o versionador de código escolhido foi o Git Hub. O projeto tem foco nas operações básicas do CRUD de modo que a ausência de uma IDE ou de um versionador de código não interferem no entendimento de como a aplicação foi desenvolvida.
 
 - **C:** Create – Cria um registro
@@ -42,6 +44,20 @@ Dentro de `/opt/lampp$` (no caso do Ubuntu) execute o comando abaixo para carreg
     sudo ./manager-linux-x64.run
 
 #### **GITHUB**
+
+<details>
+<summary>GITHUB :eye: </summary> 
+ 
+![DP](https://user-images.githubusercontent.com/121310141/210562956-79a65c24-df13-4fba-84df-ab1bed90c068.png)
+
+</details>
+
+
+
+
+
+
+
 Instalando Git no Ubuntu
 
     sudo apt update
@@ -83,8 +99,6 @@ Script de criação da tabela `crud_2` (é como ela é referenciada no arquivo `
      `gender` varchar(20) CHARACTER SET utf8 COLLATE utf8mb4_general_ci	NOT NULL,
      PRIMARY KEY (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-
-
 
 <div style="display:inline_block">
   <!--<img align="center" heigth="15" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" /> -->

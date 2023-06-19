@@ -38,6 +38,9 @@
                         <li><a class="dropdown-item" href="https://www.mysql.com/">MySQL</a></li>
                         <li><a class="dropdown-item" href="https://www.wampserver.com/en/">WAMPP</a></li>
                         <li><a class="dropdown-item" href="https://code.visualstudio.com/">VSCode</a></li>
+                        <li><a class="dropdown-item" href="https://www.w3schools.com/html/default.asp">HTML</a></li>
+                        <li><a class="dropdown-item" href="https://github.com/">GITHUB</a></li>
+
                 </li>
             </ul>
             </li>

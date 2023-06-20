@@ -54,7 +54,7 @@
                 nas operações básicas do CRUD. Aspectos como segurança, autenticação,
                 autorização, acesso a dados e geração de HTML dinâmico, entre outros, foram considerados
                 subjacentes.</p>
-            <a class="btn btn-danger btn-sm" href="data_table.php" role="button">Start CRUD &raquo;</a>
+            <a class="btn btn-danger btn-md" href="data_table.php" role="button">Start CRUD &raquo;</a>
         </div>
     </main>
 

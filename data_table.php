@@ -51,12 +51,12 @@
                 <p class="text-muted">Data-list de usuários cadastrados</p>
             </div>
 
-            <a href="cadastrar.php" class="btn btn-success btn-sm mb-3" role="button">Cadastrar</a>
+            <a href="cadastrar.php" class="btn btn-dark btn-md mb-3" role="button">Add New</a>
             <!-- <a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a> -->
             <!-- <a href="cadastrar.php" class="btn btn-primary btn-sm mb-3"><i class="fa-solid fa-plus fs-2 me-3"></i></a> -->
-            <table id="datatable" class="table table-sm table-hover">
+            <table id="datatable" class="table table-lg table-hover">
                 <!-- <table class="table table-sm table-dark"> -->
-                <thead class="table-success">
+                <thead class="table-dark">
                     <tr>
                         <th scope="col" class="text-center">CÓD</th>
                         <th scope="col">NOME</th>

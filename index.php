@@ -50,9 +50,10 @@
         <div class="bg-light p-5 rounded">
             <h1>CRUD com PHP</h1>
             <p class="lead">Exemplo de aplicação CRUD (Create, Read, Update e Delete)
-                utilizando PHP, MariaDB (SQL) Apache e Bootstrap 5.3.0, com foco apenas
-                nas operações básicas do CRUD. Aspectos como segurança, autenticação,
-                autorização, acesso a dados e geração de HTML dinâmico, entre outros, foram considerados
+                utilizando PHP 8.1, MySql Server, Bootstrap 5.3.0, Apache 2.4 rodando em Ubuntu 22.04.2
+                LTS (GNU/Linux 5.15.90.1-microsoft-standard-WSL2 x86_64), com foco apenas
+                nas operações básicas do CRUD. <br>Aspectos como segurança, validação de dados, autenticação,
+                gerenciamento cokies e geração de HTML dinâmico, entre outros, foram considerados
                 subjacentes.</p>
             <a class="btn btn-danger btn-md" href="data_table.php" role="button">Start CRUD &raquo;</a>
         </div>

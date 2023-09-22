@@ -79,10 +79,10 @@ O arquivo de conexão `db_conn.php` faz referência a um banco de dados denomina
 
     CREATE DATABASE crud;
 
-Script de criação da tabela `crud_2` (é como ela é referenciada no arquivo `data_table.php`).
+Script de criação da tabela `usuários` (é como ela é referenciada no arquivo `data_table.php`).
 
-    DROP TABLE IF EXISTS `crud_2`;
-     CREATE TABLE IF NOT EXISTS `crud_2` (
+    DROP TABLE IF EXISTS `usuarios`;
+     CREATE TABLE IF NOT EXISTS `usuarios` (
      `id` int(10) NOT NULL AUTO_INCREMENT,
      `first_name` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,
      `last_name` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,

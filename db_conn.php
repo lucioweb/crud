@@ -1,12 +1,11 @@
 <?php
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="crud";
+$servername = "localhost";
+$username = "example_user";
+$password = "password";
+$dbname = "e_comerce";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-if(!$conn){
-    die("Conexão falhou " . mysqli_connect_error() );
+if (!$conn) {
+    die("Conexão falhou " . mysqli_connect_error());
 }
 //echo "Conexão bem sucedida";
-?> 

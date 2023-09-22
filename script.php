@@ -47,28 +47,25 @@
     </header>
 
     <main class="container">
+        </br>
+        <p>
+            Schema de criação da tabela <kbd>usuarios</kbd> no banco de dados <kbd>e_comerce</kbd>.
+        </p>
         <div class="bg-light p-5 rounded">
 
             <code>
-                DROP TABLE IF EXISTS `crud_2`;</br>
-                CREATE TABLE IF NOT EXISTS `crud_2` (</br>
-                `first_name` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,</br>
-                `last_name` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,</br>
-                `email` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,</br>
-                `gender` varchar(20) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,</br>
-                PRIMARY KEY (`id`)</br>
-                ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;</br>
-
-
+                CREATE TABLE <br>
+                IF NOT EXISTS usuarios (<br>
+                id INT NOT NULL AUTO_INCREMENT,<br>
+                first_name varchar(50) NOT NULL,<br>
+                last_name varchar(50) NOT NULL,<br>
+                email varchar(50) NOT NULL,<br>
+                gender varchar(20) NOT NULL,<br>
+                ts timestamp,<br>
+                PRIMARY KEY (id)<br>
+                ) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4;<br>
             </code>
-
         </div>
-        </br>
-        <p>
-            Schema de criação da tabela <kbd>crud_2</kbd> no vanco de dados <kbd>crud</kbd>
-        </p>
-
-
     </main>
 
     <footer class="footer mt-auto py-3 fixed-bottom bg-body-tertiary">

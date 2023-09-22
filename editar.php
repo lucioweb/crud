@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $gender = $_POST['gender'];
-    $sql = "UPDATE `crud_2` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`gender`='$gender' WHERE id=$id";
+    $sql = "UPDATE `usuarios` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`gender`='$gender' WHERE id=$id";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: data_table.php?msg=Registro atualizado com sucesso na base de dados!");
@@ -67,7 +67,7 @@ if (isset($_POST['submit'])) {
         </div>
 
         <?php
-        $sql = "SELECT * FROM `crud_2` WHERE id = $id LIMIT 1";
+        $sql = "SELECT * FROM `usuarios` WHERE id = $id LIMIT 1";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         ?>

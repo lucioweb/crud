@@ -1,11 +1,16 @@
 <?php
 include "db_conn.php";
+
 if (isset($_POST['submit'])) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
+    $cidade = $_POST['cidade'];
+    $uf = $_POST['uf'];
+    $cep = $_POST['cep'];
     $gender = $_POST['gender'];
-    $sql = "INSERT INTO `usuarios`(`id`,`first_name`, `last_name`, `email`, `gender`) VALUES (NULL, '$first_name', '$last_name', '$email', '$gender')";
+
+    $sql = "INSERT INTO `tbl_user`(`id`, `first_name`, `last_name`, `email`, `cidade`, `uf`, `cep`, `gender`) VALUES (NULL, '$first_name', '$last_name', '$email', '$cidade', '$uf', '$cep', '$gender')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: data_table.php?msg=Registro inserido com sucesso na base de dados!");
@@ -15,7 +20,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <!-- Required meta tags -->
@@ -25,8 +30,9 @@ if (isset($_POST['submit'])) {
     <meta name="author" content="Lúcio Flávio Lemos">
     <title>CADASTRAR</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -35,6 +41,9 @@ if (isset($_POST['submit'])) {
     <!-- Folha de estilo própria -->
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
+
+
+
 </head>
 
 <body>
@@ -50,37 +59,111 @@ if (isset($_POST['submit'])) {
         </div>
 
         <div class="container d-flex justify-content-center">
-            <form action="" method="post" style="width:50vw; min-width: 300px;">
-                <div class="row mb-3">
-                    <div class="col">
-                        <label class="form-label">Primeiro nome</label>
-                        <input type="text" class="form-control" name="first_name" id="" placeholder="Lucio">
-                    </div>
-                    <div class="col">
-                        <label class="form-label">Último nome</label>
-                        <input type="text" class="form-control" name="last_name" id="" placeholder="Lemos">
+            <!-- Array PHP com os elementos que rendereizam o campo tipo select estado civil -->
+            <?php
+            $estado_civil = ["Casado", "União Estável", "Solteiro", "Divorciado", "Outros"];
+            ?>
+
+            <form action="" method="post" style="width:50vw; min-width: 300px;" class="row g-3 needs-validation">
+                <div class="col-md-4">
+                    <label for="validationCustom01" class="form-label">NOME</label>
+                    <input type="text" class="form-control" name="first_name" id="validationCustom01" value="" required>
+                    <div class="valid-feedback">
+                        Looks good!
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="text" class="form-control" name="email" id="" placeholder="luciolemos@luciolemos.com">
+                <div class="col-md-4">
+                    <label for="validationCustom02" class="form-label">SOBRENOME</label>
+                    <input type="text" class="form-control" name="last_name" id="validationCustom02" value="" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
+                <div class="col-md-4">
+                    <label for="validationCustom03" class="form-label">EMAIL</label>
+                    <input type="email" class="form-control" name="email" id="validationCustom03" value="" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="validationCustom04" class="form-label">CIDADE</label>
+                    <input type="text" class="form-control" name="cidade" id="validationCustom04" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                    </div>
+                </div>
+                <!-- Exemplo de campo do tipo select pegando dados em uma tabela de banco de dados -->
+                <div class="col-md-3">
+                    <label for="validationCustom05" class="form-label">UF</label>
+                    <select class="form-select" name="uf" id="validationCustom05" required>
+                        <option selected disabled value="">Selecione...</option>
+                        <?php
+                        $query_uf = "SELECT id, uf FROM `tbl_uf` ORDER BY uf ASC";
+                        $query_result = mysqli_query($conn, $query_uf);
+                        while ($row = mysqli_fetch_assoc($query_result)) {
+                            echo '<option value="' . $row['id'] . '"> ' . $row['uf'] . ' </option>';
+                        }
+                        ?>
+                    </select>
+
+                    <div class="invalid-feedback">
+                        Please select a valid state.
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="validationCustom06" class="form-label">CEP</label>
+                    <input type="text" class="form-control" name="cep" id="validationCustom06" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid zip.
+                    </div>
+                </div>
+
+                <!-- Exemplo de campo do tipo select pegando dados em um array PHP -->
+                <div class="col-md-12">
+                    <label for="validationCustom07" class="form-label">ESTADO CIVIL</label>
+                    <select class="form-select" name="estado_civil" id="validationCustom07" required>
+                        <option selected disabled value="">Selecione...</option>
+                        <?php foreach ($estado_civil as $status) { ?>
+                        <option value="<?php echo $status ?>"><?php echo $status ?></option>
+                        <?php } ?>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid state.
+                    </div>
+                </div>
+
+
                 <div class="form-group mb-3">
-                    <label>Sexo:</label> &nbsp;
+                    <label>SEXO:</label> &nbsp;
 
-                    <input type="radio" class="form-check-input" name="gender" id="masculino" value="masculino">
-                    <label for="massculino" class="form-input-label">Masculino</label> &nbsp;
+                    <input type="radio" class="form-check-input" name="gender" id="masculino" value="M">
+                    <label for="masculino" class="form-input-label">Masculino</label> &nbsp;
 
-                    <input type="radio" class="form-check-input" name="gender" id="feminino" value="feminino">
+                    <input type="radio" class="form-check-input" name="gender" id="feminino" value="F">
                     <label for="feminino" class="form-input-label">Feminino</label>
                 </div>
 
-                <div>
-                    <button type="submit" class="btn btn-success btn-sm" name="submit"><i
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                            Agree to terms and conditions
+                        </label>
+                        <div class="invalid-feedback">
+                            You must agree before submitting.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success" name="submit"><i
                             class="fa-solid fa-floppy-disk me-2"></i>Salvar</button>
-                    <a href="data_table.php" class="btn btn-danger btn-sm"><i
+                    <a href="data_table.php" class="btn btn-danger"><i
                             class="fa-sharp fa-solid fa-xmark me-2"></i>Cancelar</a>
-                    <button type="reset" class="btn btn-primary btn-sm" name="submit"><i
+                    <button type="reset" class="btn btn-primary" name="submit"><i
                             class="fa-solid fa-broom me-2"></i>Limpar</button>
                 </div>
             </form>
@@ -93,24 +176,84 @@ if (isset($_POST['submit'])) {
     </footer>
 
     <!--Scripts adicionais do próprio Bootstratp-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
-    </script>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
-
-    <!--Script padrão do Bootstrap JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
     </script>
 
+    <!--Script padrão do Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+
     <!--Script do Jquery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <!--Script do Jquery-mask-plugin-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+    $(document).ready(function() {
+        $('.date').mask('00/00/0000');
+        $('.time').mask('00:00:00');
+        $('.date_time').mask('00/00/0000 00:00:00');
+        $('#validationCustom06').mask('00000-000');
+        $('.phone').mask('0000-0000');
+        $('.phone_area').mask('(00) 0000-0000');
+        $('.phone_us').mask('(000) 000-0000');
+        $('.mixed').mask('AAA 000-S0S');
+        $('.cpf').mask('000.000.000-00', {
+            reverse: true
+        });
+        $('.cnpj').mask('00.000.000/0000-00', {
+            reverse: true
+        });
+        $('.money').mask('000.000.000.000.000,00', {
+            reverse: true
+        });
+        $('.money2').mask("#.##0,00", {
+            reverse: true
+        });
+        $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+            translation: {
+                'Z': {
+                    pattern: /[0-9]/,
+                    optional: true
+                }
+            }
+        });
+        $('.ip_address').mask('099.099.099.099');
+        $('.percent').mask('##0,00%', {
+            reverse: true
+        });
+        $('.clear-if-not-match').mask("00/00/0000", {
+            clearIfNotMatch: true
+        });
+        $('.placeholder').mask("00/00/0000", {
+            placeholder: "__/__/____"
+        });
+        $('.fallback').mask("00r00r0000", {
+            translation: {
+                'r': {
+                    pattern: /[\/]/,
+                    fallback: '/'
+                },
+                placeholder: "__/__/____"
+            }
+        });
+        $('.selectonfocus').mask("00/00/0000", {
+            selectOnFocus: true
+        });
+    });
+    </script>
 </body>
 
 </html>

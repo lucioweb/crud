@@ -3,7 +3,7 @@ CRUD com PHP e MySQL no VSCode
 ## 1 - INTRODUÇÃO 
 Olá! 😎
 
-CRUD é um acrônimo recursivo utilizado para indicar as operações básicas realizadas sobre um banco de dados (Create, Read, Update, Delete). **crud_4** é um exemplo de aplicação com foco apenas nas operações básicas do CRUD. Aspectos como segurança, autenticação, autorização, acesso a dados, geração de HTML dinâmico, paginação, etc, foram considerados subjacentes. Foram utilizadas na aplicação, as seguintes tecnologias para desenvolvimento WEB: PHP, (MariaDB) MySQL e Apache 2 (old but gold), instalados em Ubuntu rodando em WSL. O editor de codigo utilizado foi o VSCode (pode ser o notepad++, o sublime text, o gedit, etc), o versionador de código escolhido foi o Git Hub. O projeto tem foco nas operações básicas do CRUD de modo que a ausência de uma IDE ou de um versionador de código não interferem no entendimento de como a aplicação foi desenvolvida.
+CRUD é um acrônimo recursivo utilizado para indicar as operações básicas realizadas sobre um banco de dados (Create, Read, Update, Delete). **crud** é um exemplo de aplicação com foco apenas nas operações básicas do CRUD. Aspectos como segurança, autenticação, validação de dados, geração de HTML dinâmico, etc, foram considerados subjacentes. Foram utilizadas na aplicação, as seguintes tecnologias para desenvolvimento WEB: PHP 8.1, MySql Server, Bootstrap 5.3.0, Apache 2.4 (old but gold), rodando em Ubuntu 22.04.2 LTS (GNU/Linux 5.15.90.1-microsoft-standard-WSL2 x86_64). O editor de codigo utilizado foi o VSCode (pode ser o notepad++, o sublime text, o gedit, etc), o versionador de código escolhido foi o Git Hub. O projeto tem foco nas operações básicas do CRUD de modo que a ausência de uma IDE ou de um versionador de código não interferem no entendimento de como a aplicação foi desenvolvida.
 
 - **C:** Create – Cria um registro
 - **R:** Read – Lê um registro, ou uma lista de registros.
@@ -47,10 +47,12 @@ Dentro de `/opt/lampp$` (no caso do Ubuntu) execute o comando abaixo para carreg
 
 <details>
 <summary>GitHub :eye: </summary> 
+
 Instalando Git no Ubuntu
 
     sudo apt update
     sudo apt install git
+
 Verificando a versão do Git
 
     git --version
@@ -77,19 +79,34 @@ Clonando o projeto para a pasta de sua preferência dentro de htdocs.
 <summary>MySQL :eye: </summary> 
 O arquivo de conexão `db_conn.php` faz referência a um banco de dados denominado `crud`, lembre-se de criá-lo.
 
-    CREATE DATABASE crud;
+    CREATE DATABASE e_comerce;
 
 Script de criação da tabela `usuários` (é como ela é referenciada no arquivo `data_table.php`).
 
-    DROP TABLE IF EXISTS `usuarios`;
-     CREATE TABLE IF NOT EXISTS `usuarios` (
-     `id` int(10) NOT NULL AUTO_INCREMENT,
-     `first_name` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,
-     `last_name` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,
-     `email` varchar(50) CHARACTER SET utf8 COLLATE utf8mb4_general_ci NOT NULL,
-     `gender` varchar(20) CHARACTER SET utf8 COLLATE utf8mb4_general_ci	NOT NULL,
-     PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+    CREATE TABLE
+    IF NOT EXISTS tbl_user (
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name varchar(50) NOT NULL,
+    last_name varchar(50) NOT NULL,
+    email varchar(50) NOT NULL,
+    gender varchar(20) NOT NULL,
+    ts timestamp,
+    PRIMARY KEY (id)
+    ) 
+    ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4;
+
+Script PHP de conexão da aplicação com o banco de dados. 
+
+    <?php
+    $servername = "localhost";
+    $username = "luciolemos";
+    $password = "Dif**************************#";
+    $dbname = "crud";
+
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    if (!$conn) {
+        die("Conexão falhou " . mysqli_connect_error());
+}
 
 </details>
 

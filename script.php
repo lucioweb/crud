@@ -49,13 +49,13 @@
     <main class="container">
         </br>
         <p>
-            Schema de criação da tabela <kbd>usuarios</kbd> no banco de dados <kbd>e_comerce</kbd>.
+            Schema de criação da tabela <kbd>tbl_user</kbd> no banco de dados <kbd>crud</kbd>.
         </p>
         <div class="bg-light p-5 rounded">
 
             <code>
                 CREATE TABLE <br>
-                IF NOT EXISTS usuarios (<br>
+                IF NOT EXISTS tbl_user (<br>
                 id INT NOT NULL AUTO_INCREMENT,<br>
                 first_name varchar(50) NOT NULL,<br>
                 last_name varchar(50) NOT NULL,<br>

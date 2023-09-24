@@ -5,8 +5,12 @@ if (isset($_POST['submit'])) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
+    $cidade = $_POST['cidade'];
+    $uf = $_POST['uf'];
+    $cep = $_POST['cep'];
     $gender = $_POST['gender'];
-    $sql = "UPDATE `usuarios` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`gender`='$gender' WHERE id=$id";
+
+    $sql = "UPDATE `tbl_user` SET `first_name`='$first_name', `last_name`='$last_name', `email`='$email', `cidade`='$cidade', `uf`='$uf', `cep`='$cep', `gender`='$gender' WHERE id=$id";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: data_table.php?msg=Registro atualizado com sucesso na base de dados!");
@@ -25,9 +29,10 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="CRUD com PHP">
     <meta name="author" content="Lúcio Flávio Lemos">
     <title>EDITAR</title>
-    <!-- Bootstrap 5.3.0 - CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -67,45 +72,111 @@ if (isset($_POST['submit'])) {
         </div>
 
         <?php
-        $sql = "SELECT * FROM `usuarios` WHERE id = $id LIMIT 1";
+        $sql = "SELECT * FROM `tbl_user` WHERE id = $id LIMIT 1";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         ?>
 
         <div class="container d-flex justify-content-center">
-            <form action="" method="post" style="width:50vw; min-width: 300px;">
-                <div class="row mb-3">
-                    <div class="col">
-                        <label class="form-label">Primeiro nome</label>
-                        <input type="text" class="form-control" name="first_name"
-                            value="<?php echo $row['first_name'] ?>">
+            <!-- Array PHP com os elementos que rendereizam o campo tipo select estado civil -->
+            <?php
+            $estado_civil = ["Casado", "União Estável", "Solteiro", "Divorciado", "Outros"];
+            ?>
+            <form action="" method="post" style="width:50vw; min-width: 300px;" class="row g-3 needs-validation">
 
-                    </div>
-                    <div class="col">
-                        <label class="form-label">Último nome</label>
-                        <input type="text" class="form-control" name="last_name"
-                            value="<?php echo $row['last_name'] ?>">
+                <div class="col-md-4">
+                    <label for="validationCustom01" class="form-label">NOME</label>
+                    <input type="text" class="form-control" name="first_name" id="validationCustom01"
+                        value="<?php echo $row['first_name'] ?>">
+                    <div class="valid-feedback">
+                        Looks good!
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="text" class="form-control" name="email" value="<?php echo $row['email'] ?>">
+                <div class="col-md-4">
+                    <label for="validationCustom02" class="form-label">SOBRENOME</label>
+                    <input type="text" class="form-control" name="last_name" id="validationCustom02"
+                        value="<?php echo $row['last_name'] ?>">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
+                <div class="col-md-4">
+                    <label for="validationCustom03" class="form-label">EMAIL</label>
+                    <input type="email" class="form-control" name="email" id="validationCustom03"
+                        value="<?php echo $row['email'] ?>">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="validationCustom04" class="form-label">CIDADE</label>
+                    <input type="text" class="form-control" name="cidade" id="validationCustom04"
+                        value="<?php echo $row['cidade'] ?>">
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="validationCustom05" class="form-label">UF</label>
+                    <select class="form-select" name="uf" id="validationCustom05" required>
+                        <option selected disabled value="">Selecione...</option>
+                        <?php
+                        $query_uf = "SELECT id, uf FROM `tbl_uf` ORDER BY uf ASC";
+                        $query_result = mysqli_query($conn, $query_uf);
+                        while ($row = mysqli_fetch_assoc($query_result)) {
+                            echo '<option value="' . $row['id'] . '"> ' . $row['uf'] . ' </option>';
+                        }
+                        ?>
+                    </select>
+
+                    <div class="invalid-feedback">
+                        Please select a valid state.
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="validationCustom06" class="form-label">CEP</label>
+                    <input type="text" class="form-control" name="cep" id="validationCustom06"
+                        value="<?php echo $row['cep'] ?>">
+                    <div class="invalid-feedback">
+                        Please provide a valid zip.
+                    </div>
+                </div>
+
+
+                <!-- Exemplo de campo do tipo select pegando dados em um array PHP -->
+                <div class="col-md-12">
+                    <label for="validationCustom07" class="form-label">ESTADO CIVIL</label>
+                    <select class="form-select" name="estado_civil" id="validationCustom07" required>
+                        <option selected disabled value="">Selecione...</option>
+                        <?php foreach ($estado_civil as $status) { ?>
+                        <option value="<?php echo $status ?>"><?php echo $status ?></option>
+                        <?php } ?>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid state.
+                    </div>
+                </div>
+
                 <div class="form-group mb-3">
-                    <label>Sexo:</label> &nbsp;
-                    <input type="radio" class="form-check-input" name="gender" id="masculino" value="masculino"
-                        <?php echo ($row['gender'] == 'masculino') ? "checked" : ""; ?>>
-                    <label for="massculino" class="form-input-label">Masculino</label> &nbsp;
+                    <label>SEXO:</label> &nbsp;
+                    <input type="radio" class="form-check-input" name="gender" id="masculino" value="M"
+                        <?php echo ($row['gender'] == 'M') ? "checked" : ""; ?>>
+                    <label for="masculino" class="form-input-label">Masculino</label> &nbsp;
 
-                    <input type="radio" class="form-check-input" name="gender" id="feminino" value="feminino"
-                        <?php echo ($row['gender'] == 'feminino') ? "checked" : ""; ?>>
+                    <input type="radio" class="form-check-input" name="gender" id="feminino" value="F"
+                        <?php echo ($row['gender'] == 'F') ? "checked" : ""; ?>>
                     <label for="feminino" class="form-input-label">Feminino</label>
                 </div>
 
-                <div>
-                    <button type="submit" class="btn btn-success btn-sm" name="submit"><i
+
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success" name="submit"><i
                             class="fa-solid fa-floppy-disk me-2"></i>Atualizar</button>
-                    <a href="data_table.php" class="btn btn-danger btn-sm"><i
+                    <a href="data_table.php" class="btn btn-danger"><i
                             class="fa-sharp fa-solid fa-xmark me-2"></i>Cancelar</a>
                 </div>
             </form>
@@ -131,9 +202,70 @@ if (isset($_POST['submit'])) {
     </script>
 
     <!--Script do Jquery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--Script do Jquery-mask-plugin-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+    $(document).ready(function() {
+        $('.date').mask('00/00/0000');
+        $('.time').mask('00:00:00');
+        $('.date_time').mask('00/00/0000 00:00:00');
+        $('#validationCustom06').mask('00000-000');
+        $('.phone').mask('0000-0000');
+        $('.phone_area').mask('(00) 0000-0000');
+        $('.phone_us').mask('(000) 000-0000');
+        $('.mixed').mask('AAA 000-S0S');
+        $('.cpf').mask('000.000.000-00', {
+            reverse: true
+        });
+        $('.cnpj').mask('00.000.000/0000-00', {
+            reverse: true
+        });
+        $('.money').mask('000.000.000.000.000,00', {
+            reverse: true
+        });
+        $('.money2').mask("#.##0,00", {
+            reverse: true
+        });
+        $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+            translation: {
+                'Z': {
+                    pattern: /[0-9]/,
+                    optional: true
+                }
+            }
+        });
+        $('.ip_address').mask('099.099.099.099');
+        $('.percent').mask('##0,00%', {
+            reverse: true
+        });
+        $('.clear-if-not-match').mask("00/00/0000", {
+            clearIfNotMatch: true
+        });
+        $('.placeholder').mask("00/00/0000", {
+            placeholder: "__/__/____"
+        });
+        $('.fallback').mask("00r00r0000", {
+            translation: {
+                'r': {
+                    pattern: /[\/]/,
+                    fallback: '/'
+                },
+                placeholder: "__/__/____"
+            }
+        });
+        $('.selectonfocus').mask("00/00/0000", {
+            selectOnFocus: true
+        });
+    });
+    </script>
 
 </body>
 

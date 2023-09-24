@@ -27,6 +27,8 @@
                                 HTML</a></li>
                         <li><a class="dropdown-item" href="https://cdnjs.com/libraries/jquery" target="_blank">JQuery
                                 CDN</a>
+                        <li><a class="dropdown-item" href="https://cdnjs.com/libraries/jquery.mask"
+                                target="_blank">JQuery-Mask-Imput</a>
                         </li>
                         <li><a class="dropdown-item" href="https://devicon.dev/" target="_blank">Ícones</a></li>
                         <li><a class="dropdown-item" href="https://getbootstrap.com/" target="_blank">Bootstrap 5.3</a>

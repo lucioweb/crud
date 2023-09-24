@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <!-- Required meta tags -->
@@ -62,6 +62,9 @@
                         <th scope="col">NOME</th>
                         <th scope="col">SOBRENOME</th>
                         <th scope="col">EMAIL</th>
+                        <th scope="col">CIDADE</th>
+                        <th scope="col">UF</th>
+                        <th scope="col">CEP</th>
                         <th scope="col">SEXO</th>
                         <th scope="col" class="text-center">AÇÕES</th>
                     </tr>
@@ -69,7 +72,7 @@
                 <tbody>
                     <?php
                     include "db_conn.php";
-                    $sql = "SELECT * FROM `usuarios`";
+                    $sql = "SELECT * FROM `tbl_user`";
                     $result = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($result)) {
                     ?>
@@ -78,6 +81,9 @@
                         <td><?php echo $row['first_name'] ?></td>
                         <td><?php echo $row['last_name'] ?></td>
                         <td><?php echo $row['email'] ?></td>
+                        <td><?php echo $row['cidade'] ?></td>
+                        <td><?php echo $row['uf'] ?></td>
+                        <td><?php echo $row['cep'] ?></td>
                         <td><?php echo $row['gender'] ?></td>
                         <td class="text-center">
                             <a href="editar.php?id=<?php echo $row['id'] ?>" class="link-success"><i

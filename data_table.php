@@ -89,7 +89,7 @@
                         <td><?php echo $row['gender'] ?></td>
                         <td class="text-center">
                             <a href="visualizar.php?id=<?php echo $row['id'] ?>" class="link-success"><i
-                                    class="fa-solid fa-search fs-5 me-3"></i></a>
+                                    class="fa-solid fa-eye fs-5 me-3"></i></a>
                             <a href="editar.php?id=<?php echo $row['id'] ?>" class="link-primary"><i
                                     class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
                             <a href="excluir.php?id=<?php echo $row['id'] ?>" class="link-danger"><i

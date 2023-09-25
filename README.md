@@ -100,7 +100,7 @@ Script de criação da tabela `tbl_user` (é como ela é referenciada no arquivo
         `first_name` varchar(50) NOT NULL,
         `last_name` varchar(50) NOT NULL,
         `email` varchar(50) NOT NULL,
-        `estado_civil` varchar(20) DEFAULT NULL,
+        `estado_civil` varchar(20) NOT NULL,
         `cidade` varchar(50) NOT NULL,
         `uf` varchar(50) NOT NULL,
         `cep` varchar(50) NOT NULL,

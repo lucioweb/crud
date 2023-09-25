@@ -85,7 +85,8 @@ if (isset($_POST['submit'])) {
                 "<br>" . " - Email: " . $row["email"] .
                 "<br>" . " - Cidade: " . $row["cidade"] .
                 "<br>" . " - UF: " . $row["uf"] .
-                "<br>" . " - CEP: " . $row["cep"] . "<br>";
+                "<br>" . " - CEP: " . $row["cep"] .
+                "<br>" . " - DATA: " . date("d/m/Y");
             ?>
         </div>
 

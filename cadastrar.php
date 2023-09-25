@@ -5,12 +5,13 @@ if (isset($_POST['submit'])) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
+    $estado_civil = $_POST['estado_civil'];
     $cidade = $_POST['cidade'];
     $uf = $_POST['uf'];
     $cep = $_POST['cep'];
     $gender = $_POST['gender'];
 
-    $sql = "INSERT INTO `tbl_user`(`id`, `first_name`, `last_name`, `email`, `cidade`, `uf`, `cep`, `gender`) VALUES (NULL, '$first_name', '$last_name', '$email', '$cidade', '$uf', '$cep', '$gender')";
+    $sql = "INSERT INTO `tbl_user`(`id`, `first_name`, `last_name`, `email`, `estado_civil`,`cidade`, `uf`, `cep`, `gender`) VALUES (NULL, '$first_name', '$last_name', '$email', '$estado_civil', '$cidade', '$uf', '$cep', '$gender')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: data_table.php?msg=Registro inserido com sucesso na base de dados!");
@@ -61,7 +62,7 @@ if (isset($_POST['submit'])) {
         <div class="container d-flex justify-content-center">
             <!-- Array PHP com os elementos que rendereizam o campo tipo select estado civil -->
             <?php
-            $estado_civil = ["Casado", "União Estável", "Solteiro", "Divorciado", "Outros"];
+            $estado_civil = ["Casado(a)", "União Estável", "Solteiro(a)", "Divorciado(a)", "Outros"];
             ?>
 
             <form action="" method="post" style="width:50vw; min-width: 300px;" class="row g-3 needs-validation">
@@ -87,7 +88,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="validationCustom04" class="form-label">CIDADE</label>
                     <input type="text" class="form-control" name="cidade" id="validationCustom04" required>
                     <div class="invalid-feedback">
@@ -95,17 +96,18 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <!-- Exemplo de campo do tipo select pegando dados em uma tabela de banco de dados -->
-                <div class="col-md-3">
+                <div class="col-md-5">
                     <label for="validationCustom05" class="form-label">UF</label>
                     <select class="form-select" name="uf" id="validationCustom05" required>
                         <option selected disabled value="">Selecione...</option>
                         <?php
-                        $query_uf = "SELECT id, uf FROM `tbl_uf` ORDER BY uf ASC";
+                        $query_uf = "SELECT * FROM `tbl_uf` ORDER BY `uf` ASC";
                         $query_result = mysqli_query($conn, $query_uf);
                         while ($row = mysqli_fetch_assoc($query_result)) {
                             echo '<option value="' . $row['id'] . '"> ' . $row['uf'] . ' </option>';
                         }
                         ?>
+
                     </select>
 
                     <div class="invalid-feedback">
@@ -199,61 +201,7 @@ if (isset($_POST['submit'])) {
         integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-    <script>
-    $(document).ready(function() {
-        $('.date').mask('00/00/0000');
-        $('.time').mask('00:00:00');
-        $('.date_time').mask('00/00/0000 00:00:00');
-        $('#validationCustom06').mask('00000-000');
-        $('.phone').mask('0000-0000');
-        $('.phone_area').mask('(00) 0000-0000');
-        $('.phone_us').mask('(000) 000-0000');
-        $('.mixed').mask('AAA 000-S0S');
-        $('.cpf').mask('000.000.000-00', {
-            reverse: true
-        });
-        $('.cnpj').mask('00.000.000/0000-00', {
-            reverse: true
-        });
-        $('.money').mask('000.000.000.000.000,00', {
-            reverse: true
-        });
-        $('.money2').mask("#.##0,00", {
-            reverse: true
-        });
-        $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
-            translation: {
-                'Z': {
-                    pattern: /[0-9]/,
-                    optional: true
-                }
-            }
-        });
-        $('.ip_address').mask('099.099.099.099');
-        $('.percent').mask('##0,00%', {
-            reverse: true
-        });
-        $('.clear-if-not-match').mask("00/00/0000", {
-            clearIfNotMatch: true
-        });
-        $('.placeholder').mask("00/00/0000", {
-            placeholder: "__/__/____"
-        });
-        $('.fallback').mask("00r00r0000", {
-            translation: {
-                'r': {
-                    pattern: /[\/]/,
-                    fallback: '/'
-                },
-                placeholder: "__/__/____"
-            }
-        });
-        $('.selectonfocus').mask("00/00/0000", {
-            selectOnFocus: true
-        });
-    });
-    </script>
+    <script src="/js/mask.js"></script>
 </body>
 
 </html>

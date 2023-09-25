@@ -62,6 +62,7 @@
                         <th scope="col">NOME</th>
                         <th scope="col">SOBRENOME</th>
                         <th scope="col">EMAIL</th>
+                        <th scope="col">ESTADO CIVIL</th>
                         <th scope="col">CIDADE</th>
                         <th scope="col">UF</th>
                         <th scope="col">CEP</th>
@@ -81,12 +82,13 @@
                         <td><?php echo $row['first_name'] ?></td>
                         <td><?php echo $row['last_name'] ?></td>
                         <td><?php echo $row['email'] ?></td>
+                        <td><?php echo $row['estado_civil'] ?></td>
                         <td><?php echo $row['cidade'] ?></td>
                         <td><?php echo $row['uf'] ?></td>
                         <td><?php echo $row['cep'] ?></td>
                         <td><?php echo $row['gender'] ?></td>
                         <td class="text-center">
-                            <a href="editar.php?id=<?php echo $row['id'] ?>" class="link-success"><i
+                            <a href="visualizar.php?id=<?php echo $row['id'] ?>" class="link-success"><i
                                     class="fa-solid fa-search fs-5 me-3"></i></a>
                             <a href="editar.php?id=<?php echo $row['id'] ?>" class="link-primary"><i
                                     class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>

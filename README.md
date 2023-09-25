@@ -95,16 +95,19 @@ O arquivo de conexão `db_conn.php` faz referência a um banco de dados denomina
 Script de criação da tabela `tbl_user` (é como ela é referenciada no arquivo `data_table.php`).
 
     CREATE TABLE
-    IF NOT EXISTS tbl_user (
-    id INT NOT NULL AUTO_INCREMENT,
-    first_name varchar(50) NOT NULL,
-    last_name varchar(50) NOT NULL,
-    email varchar(50) NOT NULL,
-    gender varchar(20) NOT NULL,
-    ts timestamp,
-    PRIMARY KEY (id)
-    ) 
-    ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4;
+    `tbl_user` (
+        `id` int NOT NULL AUTO_INCREMENT,
+        `first_name` varchar(50) NOT NULL,
+        `last_name` varchar(50) NOT NULL,
+        `email` varchar(50) NOT NULL,
+        `estado_civil` varchar(20) DEFAULT NULL,
+        `cidade` varchar(50) NOT NULL,
+        `uf` varchar(50) NOT NULL,
+        `cep` varchar(50) NOT NULL,
+        `gender` varchar(20) NOT NULL,
+        `ts` timestamp NULL DEFAULT NULL,
+        PRIMARY KEY (`id`)
+    ) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci
 
 Script PHP de conexão da aplicação com o banco de dados. 
 

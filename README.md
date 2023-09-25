@@ -90,9 +90,9 @@ Clonando o projeto `crud` para a pasta `$ /var/www`, raiz do servidor.
 <summary>MySQL :eye: </summary> 
 O arquivo de conexão `db_conn.php` faz referência a um banco de dados denominado `crud`, lembre-se de criá-lo.
 
-    CREATE DATABASE e_comerce;
+    CREATE DATABASE crud;
 
-Script de criação da tabela `usuários` (é como ela é referenciada no arquivo `data_table.php`).
+Script de criação da tabela `tbl_user` (é como ela é referenciada no arquivo `data_table.php`).
 
     CREATE TABLE
     IF NOT EXISTS tbl_user (

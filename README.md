@@ -1,9 +1,9 @@
-CRUD com PHP e MySQL no VSCode
-<!--# CRUD com PHP e MySQL no VSCode, usando o Git Hub como versionador de código.-->
+CRUD com PHP e MySQL
+<!--# CRUD com PHP e MySQL no PhpStorm, usando o Git Hub como versionador de código.-->
 ## 1 - INTRODUÇÃO 
 Olá! 😎
 
-CRUD é um acrônimo recursivo utilizado para indicar as operações básicas realizadas sobre um banco de dados. **CRUD** 
+CRUD é um acrônimo recursivo utilizado para indicar as operações básicas realizadas sobre um banco de dados. <br>**CRUD** 
 é um exemplo de aplicação com foco apenas nas operações básicas (Create, Read, Update, Delete). <br>
 Aspectos como segurança, autenticação, validação de dados, geração de HTML dinâmico, etc, foram considerados subjacentes.<br> 
 Foram utilizadas na aplicação, as seguintes tecnologias para desenvolvimento web: PHP 8.1.2, MySql Server, Apache 2.4 (*old but gold*) e Bootstrap 5.3.0. A aplicação roda em VPS LINUX (Ubuntu 22.04.4 LTS).<br> 

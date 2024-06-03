@@ -5,13 +5,8 @@ if (isset($_POST['submit'])) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
-    $estado_civil = $_POST['estado_civil'];
-    $cidade = $_POST['cidade'];
-    $uf = $_POST['uf'];
-    $cep = $_POST['cep'];
-    $gender = $_POST['gender'];
 
-    $sql = "SELECT `id`, `last_name` FROM `tbl_user` WHERE id=$id";
+    $sql = "SELECT `id`, `last_name` FROM `tbl_crud` WHERE id=$id";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: data_table.php?msg=Registro atualizado com sucesso na base de dados!");
@@ -73,30 +68,24 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="container d-flex justify-content-left">
             <?php
-            $sql = "SELECT * FROM `tbl_user` WHERE id = $id LIMIT 1";
+            $sql = "SELECT * FROM `tbl_crud` WHERE id = $id LIMIT 1";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
 
             echo "<br> - id: " . $row["id"] .
                 "<br>" . " - Name: " . $row["first_name"] .
                 "<br>" . " - Sobrenome: " . $row["last_name"] .
-                "<br>" . " - Sexo: " . $row["gender"] .
-                "<br>" . " - Estado civil: " . $row["estado_civil"] .
-                "<br>" . " - Email: " . $row["email"] .
-                "<br>" . " - Cidade: " . $row["cidade"] .
-                "<br>" . " - UF: " . $row["uf"] .
-                "<br>" . " - CEP: " . $row["cep"] .
-                "<br>" . " - DATA: " . date("d/m/Y");
+                "<br>" . " - Email: " . $row["email"] ;
+
             ?>
         </div>
 
         <div class="container d-flex justify-content-left">
-            <form action="" method="" style="width:50vw; min-width: 300px;" class="row g-3 needs-validation">
+            <form action="data_table.php" method="" style="width:50vw; min-width: 300px;" class="row g-3 needs-validation">
                 <div class="col-12">
                     <button type="submit" class="btn btn-success" name="submit"><i
                             class="fa-solid fa-print me-2"></i>Imprimir</button>
-                    <a href="data_table.php" class="btn btn-danger"><i
-                            class="fa-solid fa-angles-right"></i></i>Voltar</a>
+                    <a href="data_table.php" class="btn btn-danger"><i class="fa-solid fa-angles-left"></i>Voltar</a>
                     <!-- <button type="reset" class="btn btn-primary" name="submit"><i class="fa-solid fa-broom me-2"></i>Limpar</button> -->
                 </div>
             </form>

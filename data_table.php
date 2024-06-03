@@ -62,18 +62,13 @@
                         <th scope="col">NOME</th>
                         <th scope="col">SOBRENOME</th>
                         <th scope="col">EMAIL</th>
-                        <th scope="col">ESTADO CIVIL</th>
-                        <th scope="col">CIDADE</th>
-                        <th scope="col">UF</th>
-                        <th scope="col">CEP</th>
-                        <th scope="col">SEXO</th>
                         <th scope="col" class="text-center">AÇÕES</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    include "db_conn.php";
-                    $sql = "SELECT * FROM `tbl_user`";
+                    include_once 'db_conn.php';
+                    $sql = "SELECT * FROM `tbl_crud`";
                     $result = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($result)) {
                     ?>
@@ -82,11 +77,6 @@
                         <td><?php echo $row['first_name'] ?></td>
                         <td><?php echo $row['last_name'] ?></td>
                         <td><?php echo $row['email'] ?></td>
-                        <td><?php echo $row['estado_civil'] ?></td>
-                        <td><?php echo $row['cidade'] ?></td>
-                        <td><?php echo $row['uf'] ?></td>
-                        <td><?php echo $row['cep'] ?></td>
-                        <td><?php echo $row['gender'] ?></td>
                         <td class="text-center">
                             <a href="visualizar.php?id=<?php echo $row['id'] ?>" class="link-success"><i
                                     class="fa-solid fa-eye fs-5 me-3"></i></a>

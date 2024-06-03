@@ -5,13 +5,8 @@ if (isset($_POST['submit'])) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
-    $estado_civil = $_POST['estado_civil'];
-    $cidade = $_POST['cidade'];
-    $uf = $_POST['uf'];
-    $cep = $_POST['cep'];
-    $gender = $_POST['gender'];
 
-    $sql = "UPDATE `tbl_user` SET `first_name`='$first_name', `last_name`='$last_name', `email`='$email',  `estado_civil`='$estado_civil', `cidade`='$cidade', `uf`='$uf', `cep`='$cep', `gender`='$gender' WHERE id=$id";
+    $sql = "UPDATE `tbl_crud` SET `first_name`='$first_name', `last_name`='$last_name', `email`='$email' WHERE id=$id";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: data_table.php?msg=Registro atualizado com sucesso na base de dados!");
@@ -73,107 +68,41 @@ if (isset($_POST['submit'])) {
         </div>
 
         <?php
-        $sql = "SELECT * FROM `tbl_user` WHERE id = $id LIMIT 1";
+        $sql = "SELECT * FROM `tbl_crud` WHERE id = $id LIMIT 1";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         ?>
 
         <div class="container d-flex justify-content-center">
             <!-- Array PHP com os elementos que rendereizam o campo tipo select estado civil -->
-            <?php
-            $estado_civil = ["Casado(a)", "União Estável", "Solteiro(a)", "Divorciado(a)", "Outros"];
-            ?>
+
             <form action="" method="post" style="width:50vw; min-width: 300px;" class="row g-3 needs-validation">
 
                 <div class="col-md-4">
-                    <label for="validationCustom01" class="form-label">NOME</label>
-                    <input type="text" class="form-control" name="first_name" id="validationCustom01"
+                    <label for="first_name" class="form-label">NOME</label>
+                    <input type="text" class="form-control" name="first_name" id="first_name"
                         value="<?php echo $row['first_name'] ?>">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label for="validationCustom02" class="form-label">SOBRENOME</label>
-                    <input type="text" class="form-control" name="last_name" id="validationCustom02"
+                    <label for="last_name" class="form-label">SOBRENOME</label>
+                    <input type="text" class="form-control" name="last_name" id="last_name"
                         value="<?php echo $row['last_name'] ?>">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label for="validationCustom03" class="form-label">EMAIL</label>
-                    <input type="email" class="form-control" name="email" id="validationCustom03"
+                    <label for="email" class="form-label">EMAIL</label>
+                    <input type="email" class="form-control" name="email" id="email"
                         value="<?php echo $row['email'] ?>">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <label for="validationCustom04" class="form-label">CIDADE</label>
-                    <input type="text" class="form-control" name="cidade" id="validationCustom04"
-                        value="<?php echo $row['cidade'] ?>">
-                    <div class="invalid-feedback">
-                        Please provide a valid city.
-                    </div>
-                </div>
-
-
-
-                <div class="col-md-3">
-                    <label for="validationCustom06" class="form-label">CEP</label>
-                    <input type="text" class="form-control" name="cep" id="validationCustom06"
-                        value="<?php echo $row['cep'] ?>">
-                    <div class="invalid-feedback">
-                        Please provide a valid zip.
-                    </div>
-                </div>
-
-
-                <!-- Exemplo de campo do tipo select pegando dados em um array PHP -->
-                <div class="col-md-12">
-                    <label for="validationCustom07" class="form-label">ESTADO CIVIL</label>
-                    <select class="form-select" name="estado_civil" id="validationCustom07" required>
-                        <option selected disabled value="">Selecione...</option>
-                        value="<?php echo $row['cep'] ?>"
-                        <?php foreach ($estado_civil as $status) { ?>
-                        <option value="<?php echo $status ?>"><?php echo $status ?></option>
-                        <?php } ?>
-                    </select>
-                    <div class="invalid-feedback">
-                        Please select a valid state.
-                    </div>
-                </div>
-
-                <div class="form-group mb-3">
-                    <label>SEXO:</label> &nbsp;
-                    <input type="radio" class="form-check-input" name="gender" id="masculino" value="M"
-                        <?php echo ($row['gender'] == 'M') ? "checked" : ""; ?>>
-                    <label for="masculino" class="form-input-label">Masculino</label> &nbsp;
-
-                    <input type="radio" class="form-check-input" name="gender" id="feminino" value="F"
-                        <?php echo ($row['gender'] == 'F') ? "checked" : ""; ?>>
-                    <label for="feminino" class="form-input-label">Feminino</label>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="validationCustom05" class="form-label">UF</label>
-                    <select class="form-select" name="uf" id="validationCustom05" required>
-                        <option selected disabled value="">Selecione...</option>
-                        <?php
-                        $query_uf = "SELECT id, uf FROM `tbl_uf` ORDER BY uf ASC";
-                        $query_result = mysqli_query($conn, $query_uf);
-                        while ($row = mysqli_fetch_assoc($query_result)) {
-                            echo '<option value="' . $row['id'] . '"> ' . $row['uf'] . ' </option>';
-                        }
-                        ?>
-                    </select>
-
-                    <div class="invalid-feedback">
-                        Please select a valid state.
-                    </div>
-                </div>
 
                 <div class="col-12">
                     <button type="submit" class="btn btn-success" name="submit"><i

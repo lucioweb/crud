@@ -27,7 +27,7 @@ O versionador de código escolhido foi o Git Hub. <br>
 - <img align="center" heigth="15" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" /> javasript ✔️
 - <img align="center" heigth="15" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" /> JQuery ✔️
 - <img align="center" heigth="15" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg" /> Markdown ✔️
-  <!--<img align="center" heigth="15" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" />-->
+- <img align="center" heigth="15" width="20" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/phpstorm/phpstorm-original.svg" /
 ### 2.2 - TUTORIAL
 
 #### **XAMPP (Apache + MariaDB + PHP + Perl)**

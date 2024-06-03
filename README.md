@@ -3,7 +3,7 @@ CRUD com PHP e MySQL
 ## 1 - INTRODUÇÃO 
 Olá! 😎
 
-C**CRUD** 
+**CRUD** 
 é um exemplo de aplicação com foco apenas nas operações básicas (Create, Read, Update, Delete) realizadas sobre uma base de dados. <br>
 Foram utilizadas na aplicação, as seguintes tecnologias para desenvolvimento web: PHP 8.1.2, MySql Server, Apache 2.4 (*old but gold*) e Bootstrap 5.3.0. A aplicação roda em VPS LINUX (Ubuntu 22.04.4 LTS).<br> 
 O IDE utilizado foi o PhpStorm (pode ser o VSCode, Notepad++, Sublime Text, Gedit, etc).<br>

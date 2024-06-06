@@ -1,15 +1,17 @@
 <?php
-include "db_conn.php";
+include_once "db_conn.php";
 $id = $_GET['id'];
+$first_name = $_GET['first_name'];
 if (isset($_POST['submit'])) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
+    $data_nascimento = $_POST['data_nascimento'];
     $email = $_POST['email'];
 
-    $sql = "UPDATE `tbl_crud` SET `first_name`='$first_name', `last_name`='$last_name', `email`='$email' WHERE id=$id";
+    $sql = "UPDATE `tbl_crud` SET `first_name`='$first_name', `last_name`='$last_name', `data_nascimento`='$data_nascimento', `email`='$email' WHERE id=$id";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        header("Location: data_table.php?msg=Registro atualizado com sucesso na base de dados!");
+        header("Location: data_table.php?msg=Registro de número $id, pertencente ao usuário $first_name foi atualizado com sucesso!");
     } else {
         echo "Falhou! " . mysqli_error($conn);
     }
@@ -79,7 +81,7 @@ if (isset($_POST['submit'])) {
             <form action="" method="post" style="width:50vw; min-width: 300px;" class="row g-3 needs-validation">
 
                 <div class="col-md-4">
-                    <label for="first_name" class="form-label">NOME</label>
+                    <label for="first_name" class="form-label">FIRST NAME</label>
                     <input type="text" class="form-control" name="first_name" id="first_name"
                         value="<?php echo $row['first_name'] ?>">
                     <div class="valid-feedback">
@@ -87,9 +89,17 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label for="last_name" class="form-label">SOBRENOME</label>
+                    <label for="last_name" class="form-label">LAST NAME</label>
                     <input type="text" class="form-control" name="last_name" id="last_name"
                         value="<?php echo $row['last_name'] ?>">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="data_nascimento" class="form-label">BIRTHDAY</label>
+                    <input type="date" class="form-control text-center" name="data_nascimento" id="data_nascimento"
+                           value="<?php echo $row['data_nascimento'] ?>">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -102,13 +112,30 @@ if (isset($_POST['submit'])) {
                         Looks good!
                     </div>
                 </div>
+                <div class="col-md-8">
+                    <label for="address" class="form-label">ADDRESS</label>
+                    <input type="text" class="form-control" name="address" id="address"
+                           value="<?php echo $row['address'] ?>">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="ts" class="form-label">CREATE AT</label>
+                    <input type="text" class="form-control text-center" name="ts" id="ts" disabled
+                           value="<?php echo $row['ts'] ?>">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
 
 
                 <div class="col-12">
-                    <button type="submit" class="btn btn-success" name="submit"><i
-                            class="fa-solid fa-floppy-disk me-2"></i>Atualizar</button>
-                    <a href="data_table.php" class="btn btn-danger"><i
-                            class="fa-sharp fa-solid fa-xmark me-2"></i>Cancelar</a>
+                    <button type="submit" class="btn btn-success btn-sm" name="submit"><i
+                            class="fa-solid fa-floppy-disk me-2"></i>Save</button>
+                    <a href="data_table.php" class="btn btn-danger btn-sm"><i
+                            class="fa-sharp fa-solid fa-xmark me-2"></i>Abort</a>
                 </div>
             </form>
         </div>

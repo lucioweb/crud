@@ -5,6 +5,8 @@ if (isset($_POST['submit'])) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $email = $_POST['email'];
+    $address = $_POST['address'];
+    $ts = $_POST['ts'];
 
     $sql = "SELECT `id`, `last_name` FROM `tbl_crud` WHERE id=$id";
     $result = mysqli_query($conn, $sql);
@@ -85,7 +87,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-12">
                     <button type="submit" class="btn btn-success" name="submit"><i
                             class="fa-solid fa-print me-2"></i>Imprimir</button>
-                    <a href="data_table.php" class="btn btn-danger"><i class="fa-solid fa-angles-left"></i>Voltar</a>
+                    <a href="data_table.php" class="btn btn-danger"><i class="fa-solid fa-angles-left"></i></i>Voltar</a>
                     <!-- <button type="reset" class="btn btn-primary" name="submit"><i class="fa-solid fa-broom me-2"></i>Limpar</button> -->
                 </div>
             </form>

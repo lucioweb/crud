@@ -1,19 +1,7 @@
 <?php
-include_once 'db_conn.php';
 
-if (isset($_POST['submit'])) {
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $email = $_POST['email'];
+include_once "includes/create.php";
 
-    $sql = "INSERT INTO `tbl_crud`(`id`, `first_name`, `last_name`, `email`) VALUES (NULL, '$first_name', '$last_name', '$email')";
-    $result = mysqli_query($conn, $sql);
-    if ($result) {
-        header("Location: data_table.php?msg=Registro inserido com sucesso na base de dados!");
-    } else {
-        echo "Falhou! " . mysqli_error($conn);
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -58,19 +46,29 @@ if (isset($_POST['submit'])) {
 
             <form action="" method="post" style="width:50vw; min-width: 300px;" class="row g-3 needs-validation">
                 <div class="col-md-4">
-                    <label for="first_name" class="form-label">NOME</label>
+                    <label for="first_name" class="form-label">FIRST NAME</label>
                     <input type="text" class="form-control" name="first_name" id="first_name" value="" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label for="last_name" class="form-label">SOBRENOME</label>
+                    <label for="last_name" class="form-label">LAST NAME</label>
                     <input type="text" class="form-control" name="last_name" id="last_name" value="" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
+
+
+                <div class="col-md-4">
+                    <label for="data_nascimento" class="form-label">BIRTHDAY</label>
+                    <input type="date" class="form-control text-center" name="data_nascimento" id="data_nascimento" value="" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
                 <div class="col-md-4">
                     <label for="email" class="form-label">EMAIL</label>
                     <input type="email" class="form-control" name="email" id="email" value="" required>
@@ -79,11 +77,19 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
 
+                <div class="col-md-8">
+                    <label for="address" class="form-label">ADDRESS</label>
+                    <input type="text" class="form-control" name="address" id="address" value="" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
                 <div class="col-12">
-                    <button type="submit" class="btn btn-success" name="submit"><i
-                            class="fa-solid fa-floppy-disk me-2"></i>Salvar</button>
-                    <a href="data_table.php" class="btn btn-danger"><i
-                            class="fa-sharp fa-solid fa-xmark me-2"></i>Cancelar</a>
+                    <button type="submit" class="btn btn-success btn-sm" name="submit"><i
+                            class="fa-solid fa-floppy-disk me-2"></i>Send</button>
+                    <a href="data_table.php" class="btn btn-danger btn-sm"><i
+                            class="fa-sharp fa-solid fa-xmark me-2"></i>Abort</a>
 
                 </div>
             </form>

@@ -7,23 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="CRUD com PHP">
     <meta name="author" content="Lúcio Flávio Lemos">
-    <title>LISTAR</title>
+    <title>DATA LIST</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Bootstrap 5.3.3 - CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Folha de estilo do data-table -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.css" />
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Folha de estilo própria -->
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
 
-
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -44,6 +55,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
             }
+
             ?>
             <!--Fim do bloco onde são executadas as mensagens de alerta-->
             <div class="text-center mb-4">
@@ -51,48 +63,58 @@
                 <p class="text-muted">Data-list de usuários cadastrados</p>
             </div>
 
-            <a href="cadastrar.php" class="btn btn-dark btn-md mb-3" role="button">Add New</a>
+
             <!-- <a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a> -->
             <!-- <a href="cadastrar.php" class="btn btn-primary btn-sm mb-3"><i class="fa-solid fa-plus fs-2 me-3"></i></a> -->
-            <table id="datatable" class="table table-lg table-hover">
-                <!-- <table class="table table-sm table-dark"> -->
-                <thead class="table-dark">
+            <div class="">
+                <a href="cadastrar.php" class="btn btn-dark btn-sm mb-3" role="button">Add New</a>
+                <table id="datatable" class="table table-sm table-hover table-striped">
+                    <!-- <table class="table table-sm table-dark"> -->
+                    <thead class="table-dark">
                     <tr>
-                        <th scope="col" class="text-center">CÓD</th>
-                        <th scope="col">NOME</th>
-                        <th scope="col">SOBRENOME</th>
+                        <th scope="col" class="text-center">ID</th>
+                        <th scope="col">FIRST NAME</th>
+                        <th scope="col">LAST NAME</th>
+                        <th scope="col">BIRTHDAY</th>
                         <th scope="col">EMAIL</th>
-                        <th scope="col" class="text-center">AÇÕES</th>
+                        <th scope="col">ADDRESS</th>
+                        <th scope="col" class="text-center">CREATE AT</th>
+                        <th scope="col" class="text-center">ACTION</th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     <?php
                     include_once 'db_conn.php';
                     $sql = "SELECT * FROM `tbl_crud`";
                     $result = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <tr>
-                        <td class="text-center"><?php echo $row['id'] ?></td>
-                        <td><?php echo $row['first_name'] ?></td>
-                        <td><?php echo $row['last_name'] ?></td>
-                        <td><?php echo $row['email'] ?></td>
-                        <td class="text-center">
-                            <a href="visualizar.php?id=<?php echo $row['id'] ?>" class="link-success"><i
-                                    class="fa-solid fa-eye fs-5 me-3"></i></a>
-                            <a href="editar.php?id=<?php echo $row['id'] ?>" class="link-primary"><i
-                                    class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
-                            <a href="excluir.php?id=<?php echo $row['id'] ?>" class="link-danger"><i
-                                    class="fa-solid fa-trash fs-5 me-3"></i></a>
-                        </td>
-                    </tr>
+                        ?>
+                        <tr>
+                            <td class="text-center"><?php echo $row['id'] ?></td>
+                            <td><?php echo $row['first_name'] ?></td>
+                            <td><a href="view.php?id=<?php echo $row['id'] ?>"><?php echo $row['last_name'] ?></a></td>
+                            <td><?php echo $row['data_nascimento'] ?></td>
+                            <td><?php echo $row['email'] ?></td>
+                            <td><?php echo $row['address'] ?></td>
+                            <td class="text-center"><?php echo $row['ts'] ?></td>
+                            <td class="text-center">
+                                <!--<a href="view.php?id=<?php /*echo $row['id'] */?>" class="link-success"><i
+                                            class="fa-solid fa-eye fs-5 me-3"></i></a>-->
+                                <a href="editar.php?id=<?php echo $row['id'] ?>" class="link-primary"><i
+                                            class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
+                                <a href="excluir.php?id=<?php echo $row['id'] ?>" class="link-danger"><i
+                                            class="fa-solid fa-trash fs-5 me-3"></i></a>
+                            </td>
+                        </tr>
 
-                    <?php
+                        <?php
                     }
                     ?>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </main>
     <footer class="footer mt-auto py-3 fixed-bottom bg-body-tertiary">
@@ -101,23 +123,17 @@
     </footer>
 
     <!--Scripts adicionais do próprio Bootstratp-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
+    <!--Script padrão do JS do Bootstrap 5.3.3 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <!--Script padrão do Bootstrap JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
 
     <!--Script do Jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- CDN do javascript do data-table -->
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.js"></script>

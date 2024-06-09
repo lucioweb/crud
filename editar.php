@@ -7,8 +7,9 @@ if (isset($_POST['submit'])) {
     $last_name = $_POST['last_name'];
     $data_nascimento = $_POST['data_nascimento'];
     $email = $_POST['email'];
+    $address = $_POST['address'];
 
-    $sql = "UPDATE `tbl_crud` SET `first_name`='$first_name', `last_name`='$last_name', `data_nascimento`='$data_nascimento', `email`='$email' WHERE id=$id";
+    $sql = "UPDATE `tbl_crud` SET `first_name`='$first_name', `last_name`='$last_name', `data_nascimento`='$data_nascimento', `email`='$email', `address`='$address' WHERE id=$id";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: data_table.php?msg=Registro de número $id, pertencente ao usuário $first_name foi atualizado com sucesso!");
@@ -64,9 +65,9 @@ if (isset($_POST['submit'])) {
     </header>
 
     <main class="container">
-        <div class="text-center mb-4">
-            <h3>EDITAR</h3>
-            <p class="text-muted">Atualize os dados do usuário</p>
+        <div class="text-center mx-auto pt-5">
+            <h3>EDITA (UPDATE) DADOS DO CLIENTE</h3>
+            <p class="text-muted">Formulário de edição de dados</p>
         </div>
 
         <?php

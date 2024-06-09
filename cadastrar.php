@@ -37,9 +37,9 @@ include_once "includes/create.php";
     </header>
 
     <main class="container">
-        <div class="text-center mb-4">
-            <h3>CADASTRAR</h3>
-            <p class="text-muted">Complete os campos do formulário para adicionar um novo usuário</p>
+        <div class="text-center mx-auto pt-5">
+            <h3>CADASTRAR (CREATE) CLIENTE</h3>
+            <p class="text-muted">Formulário de Cadastro de Clientes</p>
         </div>
 
         <div class="container d-flex justify-content-center">

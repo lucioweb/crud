@@ -64,11 +64,11 @@ if (isset($_POST['submit'])) {
 </header>
 
 <main class="container">
-    <div class="text-center mb-4">
-        <h3>RESUMO DOS DADOS</h3>
-        <p class="text-muted">Resumo de dados do usuário</p>
+    <div class="text-center mx-auto pt-5">
+        <h3>VISUALIZA (READ) DADOS DO CLIENTE</h3>
+        <p class="text-muted">Visualiza dados do cadastro</p>
     </div>
-    <table id="datatable" class="table table-lg table-bordered">
+    <table id="datatable" class="table table-bordered table-hover table-striped">
         <!-- <table class="table table-sm table-dark"> -->
        <tbody>
         <?php
@@ -109,7 +109,6 @@ if (isset($_POST['submit'])) {
             </tr>
 
 
-
             <?php
         }
         ?>
@@ -127,6 +126,7 @@ if (isset($_POST['submit'])) {
             <!-- <button type="submit" class="btn btn-success" name="imprimir" onclick="imprime()"><i class="fa-solid fa-print me-2"></i>Imprimir</button>-->
             <!-- <input class="btn btn-primary" type="button" value="Imprimir" onClick="window.print()" />-->
                 <a href="#" class="btn btn-primary btn-sm" onclick="window.print();"><i class="fa-solid fa-print me-2"></i></i>Print</a>
+                <a href="gerar_pdf.php" class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-file-pdf me-2"></i>Export PDF</a>
                 <a href="data_table.php" class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-xmark me-2"></i>Abort</a>
 
 

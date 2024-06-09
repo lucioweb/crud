@@ -65,8 +65,8 @@ if (isset($_POST['submit'])) {
 
     <main class="container">
         <div class="text-center mb-4">
-            <h3>RESUMO DOS DADOS</h3>
-            <p class="text-muted">Resumo de dados do usuário</p>
+            <h3>VISUALIZA (READ) DADOS DO CLIENTE</h3>
+            <p class="text-muted">Resumo de dados do cliente</p>
         </div>
         <div class="container d-flex justify-content-left">
             <?php

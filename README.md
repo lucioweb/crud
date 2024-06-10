@@ -205,3 +205,32 @@ https://devicon.dev/
 https://dev.to/envoy_/150-badges-for-github-pnk
 https://shields.io/
 -->
+
+    {
+      "name": "lucioweb/crud",
+      "description": "CRUD com PHP e MySql",
+      "minimum-stability": "stable",
+      "license": "proprietary",
+      "authors": [
+        {
+          "name": "Lúcio Flávio Lemos",
+          "email": "lucio.lemos.385@ufrn.edu.br",
+          "role": "developer",
+          "homepage": "https://luciolemos.com.br/"
+        }
+      ],
+      "config": {
+        "vendor-dir": "vendor"
+      },
+      "autoload": {
+        "psr-4": {
+          "source\\": "source/"
+        },
+        "files": [
+          "source/config.php"
+        ]
+      },
+      "require": {
+        "dompdf/dompdf": "3.0.0"
+      }
+    }

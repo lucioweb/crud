@@ -68,19 +68,19 @@
         </div>
 
 
-<!--        <a href="cadastrar.php" class="btn btn-success btn-sm mb-3" tabindex="-1" role="button" aria-disabled="true">Link</a>-->
-<!--        <a href="cadastrar.php" class="btn btn-success btn-sm mb-3"><i class="fa-solid fa-plus"></i></a>-->
-        <a href="cadastrar.php" class="btn btn-success btn-sm mb-3" role="button">New client<i class="fa-solid fa-plus ms-2"></i></a>
+        <a href="#" class="btn btn-danger btn-sm mb-3"><i class="fa-sharp fa-solid fa-file-pdf me-2"></i>Export PDF</a>
+        <a href="#" class="btn btn-primary btn-sm mb-3" onclick="window.print();"><i class="fa-solid fa-print me-2"></i></i>Print All</a>
+        <a href="cadastrar.php" class="btn btn-success btn-sm mb-3" role="button"><i class="fa-solid fa-plus me-2"></i>New client</a>
         <table id="datatable" class="table table-bordered table-hover table-striped">
             <!-- <table class="table table-sm table-dark"> -->
             <thead class="table-success">
             <tr>
                 <th scope="col" class="text-center">ID</th>
-                <th scope="col">FIRST NAME</th>
-                <th scope="col">LAST NAME</th>
-                <th scope="col">BIRTHDAY</th>
-                <th scope="col">EMAIL</th>
-                <th scope="col">ADDRESS</th>
+                <th scope="col" class="text-center">FIRST NAME</th>
+                <th scope="col" class="text-center">LAST NAME</th>
+                <th scope="col" class="text-center">BIRTHDAY</th>
+                <th scope="col" class="text-center">EMAIL</th>
+                <th scope="col" class="text-center">ADDRESS</th>
                 <th scope="col" class="text-center">CREATE AT</th>
                 <th scope="col" class="text-center">ACTION</th>
             </tr>
@@ -151,6 +151,13 @@
 
 <script type="text/javascript">
     new DataTable('#datatable');
+</script>
+
+<script type="text/javascript">
+    function imprime(text){
+        text=document
+        print()
+    }
 </script>
 </body>
 

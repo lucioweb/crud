@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CRUD com PHP">
+    <meta name="author" content="Lúcio Flávio Lemos">
+    <title>CRUD</title>
+
+    <!-- Bootstrap 5.3.3 - CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Folha de estilo própria -->
+    <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="container" style="float: left;">
+        <picture>
+            <figure>
+                <img src="img/apache.png" width="10%">
+            </figure>
+        </picture>
+    </div>
+    <h1>Hello CRUD com PHP e MySql!</h1>
+    <p>Essa página substitui a página padrão de teste do Apache.<br>
+        Se você chegou até aqui é porque seu servidor Apache, com
+        PHP 8.3.8 e MySQL Ver 8.0.36, rodando em VPN LINUX com Debian 12, foi instalado e configurado com sucesso.</p>
+    <p>Parabéns!<br>
+        Você pode acessar a página de teste do Apache para confirmar que o host está funcionando
+        corretamente através do seu endereço IP. O host default foi desabilitado, de modo que a página de boas vindas do apache não será exibida.</p>
+    <h4>Descubra o seu enderço IP com o comando:</h4>
+    <div class="alert alert-dark" role="alert">
+        <p><pre><code>$ hostname -I</code></pre></p>
+    </div>
+
+    <h4>Acesse a página de boas vindas do apache no host(var/www/crud), cujas etapas de criação e configuração são descritas nos próximos passos.</h4>
+    <p><code>http://88.198.104.148/index.html</code></p>
+    <h4>Configurando Hosts Virtuais (Recomendado)</h4>
+    <p>Ao usar o servidor Web Apache, você pode usar hosts virtuais (similares a blocos de servidor no Nginx) para
+        encapsular detalhes de configuração e
+        hospedar mais de um domínio de um único servidor.
+        Vamos configurar um domínio chamado <strong>PHP</strong>.
+        O Apache no Debian tem um bloco de servidor habilitado por padrão que está configurado para servir documentos do
+        diretório <code>/var/www/html</code>.
+        Enquanto isso funciona bem para um único site, ele pode tornar-se indevido se você estiver hospedando vários
+        sites.
+        Ao invés de modificar o /var/www/html, vamos criar uma estrutura de diretórios dentro do /var/www para um site (<strong>PHP</strong>),
+        deixando o /var/www/html
+        no lugar como o diretório padrão para ser exibido se um pedido de cliente não corresponder a nenhum outro site.
+    </p>
+    <p>Para que o Apache sirva este conteúdo, é necessário criar um arquivo de host virtual com as diretivas corretas.
+        <br>
+        Em vez de modificar o arquivo de configuração padrão localizado em <code>/etc/apache2/sites-available/000-default.conf</code>
+        diretamente, que carrega a página de teste padrão do Apache, <br>criamos um novo em <code>/etc/apache2/sites-available/crud.conf</code>.
+        Agora basta desabilitarmos um (<code>sudo a2dissite 000-default.conf</code>) e habilitarmos o outro (<code>sudo
+            a2ensite crud.conf</code>).
+    </p>
+    <h4>Criando o host <code>crud</code> no Apache</h4>
+    <div class="alert alert-dark" role="alert">
+        <p><pre><code>$ sudo nano /etc/apache2/sites-available/crud.conf</code></pre></p>
+    </div>
+
+    <h4>Dentro de <code>$ cd /etc/apache2/sites-available/crud.conf</code> defina as diretivas do novo host:</h4>
+    <div class="alert alert-dark" role="alert">
+        <p><pre>
+        <code><</code>VirtualHost 88.198.104.148:80<code>></code>
+            ServerName crud
+            ServerAlias www.crud
+            ServerAdmin webmaster@localhost
+            DocumentRoot /var/www/crud
+            ErrorLog ${APACHE_LOG_DIR}/error.log
+            CustomLog ${APACHE_LOG_DIR}/access.log combined
+       <code><</code>VirtualHost<code>></code>
+    </pre></p>
+    </div>
+
+    <h4>Criando o diretório do projeto na raiz do servidor</h4>
+    <div class="alert alert-dark" role="alert">
+        <p><pre>$ sudo mkdir /var/www/crud</pre></code></p>
+    </div>
+
+    <h4>Dando permissões ao usuário corrente</h4>
+    <div class="alert alert-dark" role="alert">
+        <p><pre><code>$ sudo chown -R $USER:$USER /var/www/your_domain</code></pre></p>
+    </div>
+
+    <h4>A seguir, crie uma página de amostra para o novo host<code>index.html</code> utilizando o nano ou seu editor favorito:</h4>
+    <div class="alert alert-dark" role="alert">
+        <p><pre><code>$ sudo nano /var/www/crud/index.html</code></pre></p>
+    </div>
+
+    <h4>Inicie seu servidor apache com esse comando no terminal:</h4>
+    <div class="alert alert-dark" role="alert">
+        <p><pre><code>$ sudo service apache2 start</code></pre></p>
+    </div>
+
+    <h4>Caminho do host:</h4>
+    <div class="alert alert-dark" role="alert">
+        <p><pre><code>$/ cd var/www/crud</code></pre></p>
+    </div>
+
+</div>
+<!--Scripts adicionais do próprio Bootstratp-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+<!--Script padrão do JS do Bootstrap 5.3.3 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+<!--Script do Jquery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
